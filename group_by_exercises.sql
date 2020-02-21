@@ -15,11 +15,11 @@ FROM employees
 WHERE last_name LIKE 'E%E'
 GROUP BY last_name, first_name;
 
-SELECT DISTINCT t1.last_name, COUNT(*)
+SELECT DISTINCT t1.last_name, COUNT(*) AS COUNT
 FROM (SELECT * FROM employees WHERE last_name LIKE '%q%') AS t1
 WHERE last_name NOT LIKE '%qu%'
 GROUP BY t1.last_name
-ORDER BY COUNT(*);
+ORDER BY COUNT(*) DESC;
 
 SELECT COUNT(*), gender
 FROM employees
